@@ -1,0 +1,51 @@
+.row{
+  height: 70px
+}
+
+.row td{
+  padding: 10px;
+}
+
+.category-sell{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.category-icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #4db6ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.category-icon img{
+  width: 75%;
+}
+
+.category-name{
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 60%;
+}
+
+.note-dates{
+  width: 100%;
+  min-width: 100px;
+}
+
+.icons-container{
+  display: flex;
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

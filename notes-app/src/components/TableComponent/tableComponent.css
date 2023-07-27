@@ -1,0 +1,21 @@
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header{
+  background-color: #4db6ac;
+  height: 60px;
+  font-size: 18px;
+}
+
+.table-header__icons{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.table-header__icon{
+  width: 25px;
+}
