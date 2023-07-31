@@ -9,6 +9,7 @@ import { type StatisticNote, type Note } from '../../types/interfaces'
 import StatisticTableRow from '../StatistycTableRow/StatisticTableRow'
 import { useAppDispatch } from '../../store/hooks'
 import { notesActions } from '../../store/notes/notesSlice'
+import { useNavigate } from 'react-router-dom'
 
 interface TableComponentProps {
   role: 'content' | 'statistic'
@@ -18,6 +19,7 @@ interface TableComponentProps {
 
 const TableComponent: React.FC<TableComponentProps> = ({ role, notes, statistic }) => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const archiveNoteHandler = useCallback((id: string, archived: boolean) => {
     if (archived) {
@@ -29,6 +31,10 @@ const TableComponent: React.FC<TableComponentProps> = ({ role, notes, statistic 
 
   const deleteNoteHandler = useCallback((id: string) => {
     dispatch(notesActions.deleteNote(id))
+  }, [])
+
+  const editNoteHandler = useCallback((id: string) => {
+    navigate(`/notes/${id}`)
   }, [])
 
   return (
@@ -64,6 +70,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ role, notes, statistic 
           key={note.id}
           onArchive={() => { archiveNoteHandler(note.id, note.archived) } }
           onDeleteNote={() => { deleteNoteHandler(note.id) }}
+          onEditNote={() => { editNoteHandler(note.id) }}
           />))}
           {role === 'statistic' && (statistic != null) && statistic.map(el => <StatisticTableRow data={el} key={el.category} />)}
         </tbody>

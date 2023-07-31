@@ -10,18 +10,16 @@ interface SelectProps {
   }>
   value: string
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void
-  description?: string
-  testId?: string
+  required?: boolean
 }
 
-const Select: React.FC<SelectProps> = ({ name, value, onChange, description, options, testId }) => {
+const Select: React.FC<SelectProps> = ({ name, value, onChange, options, required }) => {
   return (
     <label className="select">
-      {<span className="visually-hidden">{description}</span>}
       <select
-      data-test-id={testId}
       name={name}
       value={value}
+      required={required}
       onChange={onChange}
         style={{ backgroundImage: `url(${arrowIcon})` }}
       >

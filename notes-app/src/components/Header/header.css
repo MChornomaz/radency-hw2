@@ -1,7 +1,7 @@
 .header{
   width: 100%;
   height: 70px;
-  background-color: #4db6ac;
+  background-color: var(--color-green-main);
 }
 
 .header__navigation{

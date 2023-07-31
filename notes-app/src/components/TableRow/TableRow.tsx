@@ -9,9 +9,10 @@ interface TableRowProps {
   data: Note
   onArchive: () => void
   onDeleteNote: () => void
+  onEditNote: () => void
 }
 
-const TableRow: React.FC<TableRowProps> = ({ data, onArchive, onDeleteNote }) => {
+const TableRow: React.FC<TableRowProps> = ({ data, onArchive, onDeleteNote, onEditNote }) => {
   const { category, content, created, dates, name } = data
 
   const categoryIcon = selectCategoryIcon(category)
@@ -37,12 +38,12 @@ const TableRow: React.FC<TableRowProps> = ({ data, onArchive, onDeleteNote }) =>
       </td>
       <td>
         <div className='note-dates'>
-          {dates.map((date, index) => <p key={Math.random()}>{date}</p>)}
+          {dates.map((date) => <p key={Math.random()}>{date}</p>)}
         </div>
       </td>
       <td >
         <div className="icons-container">
-          <IconButton type='edit' />
+          <IconButton type='edit' onClick={onEditNote} />
           <IconButton type='archive' onClick={onArchive} />
           <IconButton type='delete' onClick={onDeleteNote}/>
           </div>
