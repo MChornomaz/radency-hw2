@@ -15,6 +15,8 @@ interface TableRowProps {
 const TableRow: React.FC<TableRowProps> = ({ data, onArchive, onDeleteNote, onEditNote }) => {
   const { category, content, created, dates, name } = data
 
+  const visibleContent = content.length > 60 ? `${content.slice(0, 55)}...` : content
+
   const categoryIcon = selectCategoryIcon(category)
   return (
     <tr className='row'>
@@ -34,7 +36,7 @@ const TableRow: React.FC<TableRowProps> = ({ data, onArchive, onDeleteNote, onEd
         {category}
       </td>
       <td className="content-cell">
-            <div>{content}</div>
+        <div>{visibleContent}</div>
       </td>
       <td>
         <div className='note-dates'>

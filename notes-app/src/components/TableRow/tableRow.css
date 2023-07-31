@@ -43,8 +43,9 @@
 }
 
 .icons-container{
-  display: flex;
-  min-width: 90px;
+  height: 100%;
+  display: flex ;
+  min-width: 90px ;
   display: flex;
   align-items: center;
   justify-content: space-around;
