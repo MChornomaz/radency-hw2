@@ -1,0 +1,19 @@
+.inputs__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputs__container label{
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.inputs__container select{
+  width: 100%;
+}
+
+.edit-form button{
+  margin-top: 50px;
+}

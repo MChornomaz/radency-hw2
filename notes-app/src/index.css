@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+:root {
+  --color-white: #ffffff;
+  --color-green-main: #4db6ac;
+  --shadow: 0px 1px 16px 7px rgba(77,182,172,0.41);
+}
+
+h1{
+  font-family: 'Lumanosimo', cursive;
+  font-size: 50px;
+}

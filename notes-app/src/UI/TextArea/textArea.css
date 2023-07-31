@@ -1,0 +1,32 @@
+.textarea__container{
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea{
+  min-width: 160px;
+  min-height: 45px;
+  padding: 10px 40px 10px 15px;
+  font-size: 18px;
+  background-color: transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%;
+  background-size: 15px;
+  border: 2px solid var(--color-green-main);
+  border-radius: 10px;
+  appearance: none;
+  min-height: 300px;
+  height: max-content;
+}
+.textarea__heading{
+  font-size: 24px;
+  color: #4db6ac;
+  margin-bottom: 15px;
+}
+
+
+.textarea:active, .textarea:focus{
+  box-shadow: var(--shadow);
+  outline: none;
+}
