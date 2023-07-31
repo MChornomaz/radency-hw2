@@ -1,9 +1,12 @@
 import React from 'react'
+
 import { selectCategoryIcon } from '../../utils/selectCategoryIcon'
 
-import './tableRow.css'
 import { type Note } from '../../types/interfaces'
+
 import IconButton from '../../UI/buttons/IconButton/IconButton'
+
+import './tableRow.css'
 
 interface TableRowProps {
   data: Note

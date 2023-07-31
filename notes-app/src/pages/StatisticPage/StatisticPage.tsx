@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
+
 import { useAppSelector } from '../../store/hooks'
 import { selectNotesArray } from '../../store/selectors'
+
 import { type StatisticNote } from '../../types/interfaces'
+
 import { getStatistic } from '../../utils/getStatistic'
+
 import TableComponent from '../../components/TableComponent/TableComponent'
 
 const StatisticPage: React.FC = () => {

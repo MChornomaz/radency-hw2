@@ -1,5 +1,7 @@
 import React from 'react'
+
 import PathConstants from './PathConstants'
+
 import MainPage from '../pages/MainPage/MainPage'
 import ArchivePage from '../pages/ArchivePage/ArchivePage'
 import StatisticPage from '../pages/StatisticPage/StatisticPage'

@@ -1,9 +1,12 @@
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import TableComponent from '../../components/TableComponent/TableComponent'
 import MainButton from '../../UI/buttons/MainButton/MainButton'
+
 import { useAppSelector } from '../../store/hooks'
 import { selectActiveNotes } from '../../store/selectors'
+
 import PathConstants from '../../routes/PathConstants'
 
 const MainPage: React.FC = () => {

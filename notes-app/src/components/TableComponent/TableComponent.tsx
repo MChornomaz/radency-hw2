@@ -1,15 +1,18 @@
 import React, { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import editIcon from '../../assets/icons/pencil-svgrepo-com.svg'
 import trashIcon from '../../assets/icons/trash-bin-trash-svgrepo-com.svg'
 import archiveIcon from '../../assets/icons/archive-down-svgrepo-com.svg'
-
-import './tableComponent.css'
 import TableRow from '../TableRow/TableRow'
-import { type StatisticNote, type Note } from '../../types/interfaces'
 import StatisticTableRow from '../StatistycTableRow/StatisticTableRow'
+
+import { type StatisticNote, type Note } from '../../types/interfaces'
+
 import { useAppDispatch } from '../../store/hooks'
 import { notesActions } from '../../store/notes/notesSlice'
-import { useNavigate } from 'react-router-dom'
+
+import './tableComponent.css'
 
 interface TableComponentProps {
   role: 'content' | 'statistic'

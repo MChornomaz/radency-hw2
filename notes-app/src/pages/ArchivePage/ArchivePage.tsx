@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { useAppSelector } from '../../store/hooks'
 import { selectArchivedNotes } from '../../store/selectors'
+
 import TableComponent from '../../components/TableComponent/TableComponent'
 
 const ArchivePage: React.FC = () => {

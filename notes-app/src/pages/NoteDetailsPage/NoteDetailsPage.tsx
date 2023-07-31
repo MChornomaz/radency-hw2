@@ -1,18 +1,21 @@
 import React, { type ChangeEvent, useCallback, useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+
 import Input from '../../UI/Input/Input'
-import { categories } from '../../data/constants'
 import Select from '../../UI/Select/Select'
 import TextArea from '../../UI/TextArea/TextArea'
 import MainButton from '../../UI/buttons/MainButton/MainButton'
-import { useNavigate, useParams } from 'react-router-dom'
+
+import { type Note } from '../../types/interfaces'
+
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { notesActions } from '../../store/notes/notesSlice'
 import { selectNotesArray } from '../../store/selectors'
 
-import './noteDetails.css'
 import { extractDatesFromString } from '../../utils/extractDatesFromStrin'
-import { type Note } from '../../types/interfaces'
-import { notesActions } from '../../store/notes/notesSlice'
-import PathConstants from '../../routes/PathConstants'
+import { categories } from '../../data/constants'
+
+import './noteDetails.css'
 
 const NoteDetailsPage: React.FC = () => {
   const [date, setDate] = useState('')

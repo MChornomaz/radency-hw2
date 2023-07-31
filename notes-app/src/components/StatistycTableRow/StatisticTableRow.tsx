@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { type StatisticNote } from '../../types/interfaces'
 import { selectCategoryIcon } from '../../utils/selectCategoryIcon'
 
