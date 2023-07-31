@@ -1,30 +1,38 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import editIcon from '../../assets/icons/pencil-svgrepo-com.svg'
 import trashIcon from '../../assets/icons/trash-bin-trash-svgrepo-com.svg'
 import archiveIcon from '../../assets/icons/archive-down-svgrepo-com.svg'
 
 import './tableComponent.css'
 import TableRow from '../TableRow/TableRow'
+import { type StatisticNote, type Note } from '../../types/interfaces'
+import StatisticTableRow from '../StatistycTableRow/StatisticTableRow'
+import { useAppDispatch } from '../../store/hooks'
+import { notesActions } from '../../store/notes/notesSlice'
 
 interface TableComponentProps {
   role: 'content' | 'statistic'
-  title: string
+  notes?: Note[]
+  statistic?: StatisticNote[]
 }
 
-const notes = [
-  { id: '1', name: 'Shopping list', created: 'April 20, 2021', category: 'Task', content: 'Tomatoes, bread', dates: ['2021-05-23', '2021-05-23'], archived: false },
-  { id: '2', name: 'The theory of evolution', created: 'April 27, 2021', category: 'Random Thought', content: 'The evolution ...The evolution ...The evolution The evolution ...The evolution ...The evolution ...The evolution ...', dates: [], archived: true },
-  { id: '3', name: 'New Feature', created: 'May 05, 2021', category: 'Idea', content: 'Implement new', dates: ['2021-05-23'], archived: true },
-  { id: '4', name: 'William Gaddis', created: 'May 07, 2021', category: 'Quote', content: 'Power doesn\'t come', dates: [], archived: false },
-  { id: '5', name: 'Books', created: 'May 15, 2021', category: 'Task', content: ' The Lean Startup', dates: [], archived: true },
-  { id: '6', name: 'Shopping list', created: 'May 20, 2021', category: 'Task', content: 'Tomatoes, bread', dates: ['2021-05-23'], archived: true },
-  { id: '7', name: 'The theory of evolution', created: 'May 26, 2021', category: 'Random Thought', content: 'Development of the', dates: [], archived: true }
-]
+const TableComponent: React.FC<TableComponentProps> = ({ role, notes, statistic }) => {
+  const dispatch = useAppDispatch()
 
-const TableComponent: React.FC<TableComponentProps> = ({ role, title }) => {
+  const archiveNoteHandler = useCallback((id: string, archived: boolean) => {
+    if (archived) {
+      dispatch(notesActions.unarchiveNote(id))
+    } else {
+      dispatch(notesActions.archiveNote(id))
+    }
+  }, [])
+
+  const deleteNoteHandler = useCallback((id: string) => {
+    dispatch(notesActions.deleteNote(id))
+  }, [])
+
   return (
     <>
-      <h2>{title}</h2>
       <table className="table">
         <thead className='table-header'>
           {role === 'content' && (<tr>
@@ -50,7 +58,14 @@ const TableComponent: React.FC<TableComponentProps> = ({ role, title }) => {
           )}
         </thead>
         <tbody>
-          {role === 'content' && notes.map(note => <TableRow data={note} key={note.id} />)}
+          {role === 'content' && (notes != null) && notes.map(note => (
+          <TableRow
+          data={note}
+          key={note.id}
+          onArchive={() => { archiveNoteHandler(note.id, note.archived) } }
+          onDeleteNote={() => { deleteNoteHandler(note.id) }}
+          />))}
+          {role === 'statistic' && (statistic != null) && statistic.map(el => <StatisticTableRow data={el} key={el.category} />)}
         </tbody>
       </table>
     </>

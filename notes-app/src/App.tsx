@@ -1,23 +1,19 @@
 import React from 'react'
-import TableComponent from './components/TableComponent/TableComponent'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Layout from './components/Layout/Layout'
+import routes from './routes/routes'
 
 import './App.css'
-import MainButton from './UI/buttons/MainButton/MainButton'
 
 const App: React.FC = () => {
-  return (
-    <main>
-      <div className='container'>
-        <TableComponent role='content' title='Your Notes'/>
-        <div className='create-note__container'>
-          <MainButton type='button'>Create note</MainButton>
-        </div>
-      </div>
-      <div className='container'>
-        <TableComponent role='statistic' title="Notes Statistic" />
-      </div>
-    </main>
-  )
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: routes
+    }
+  ])
+  return <RouterProvider router={router} />
 }
 
 export default App
